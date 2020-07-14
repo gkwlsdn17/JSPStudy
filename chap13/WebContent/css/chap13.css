@@ -1,0 +1,27 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+tr:hover{
+	cursor: pointer;
+}
+*{
+	font-family: 'Do Hyeon', sans-serif;
+}
+.bg-blue{
+	background-color: blue;
+}
+.bg-lightblue{
+	background-color: #42daf5;
+}
+.bg-mycolor{
+	color: black;
+}
+.myborder{
+	border:1px solid #fff;
+}
+.mycenter{
+	text-align: center;
+}
+.myright{
+	text-align: right;
+}
+
