@@ -10,6 +10,7 @@
 	FileBoardDTO fdto = new FileBoardDTO();
 	int maxsize = 1024*1024*10; //10Mb
 	String filepath = application.getRealPath("/upload/");
+	//filepath = "d:/a/";
 	File file = new File(filepath);
 	if(!file.exists()){
 		file.mkdirs();
@@ -53,6 +54,6 @@
     	fdto.setContent(mr.getParameter("content"));
     }
     
-    FileBoardDAO fbd = new FileBoardDAO();
+    FileBoardDAO fbd = FileBoardDAO.getInstance();
     fbd.insertFileBoard(fdto);
 %>
