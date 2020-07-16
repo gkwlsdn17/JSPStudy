@@ -4,10 +4,21 @@
 <%@ page import="com.mh.fileboard.FileBoardDAO" %>
 <%@ page import="com.mh.fileboard.FileBoardDTO" %>
 <%
+/*
+	String requestAttribute = (String)request.getAttribute("a");
+	out.println("requestAttribute = "+requestAttribute+"<br/>");
+	
+	String sessionAttribute = (String)session.getAttribute("b");
+	out.println("sessionAttribute = "+sessionAttribute);
+*/
 	//FileBoardDAO dao1 = new FileBoardDAO();
 	FileBoardDAO dao = FileBoardDAO.getInstance();
 	List<FileBoardDTO> list = dao.selectAllFileBoard();
 %>
+<!-- <br/> -->
+<!-- <br/> -->
+<%-- ${a} --%>
+<%-- ${b} --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,17 +36,22 @@
 	</div>
 </form>
 <div>
-	<table border="1">
-		<tr>
-			<th>idx</th>
-			<th>title</th>
-			<th>content</th>
-			<th>file</th>
-		</tr>
+	<form action="deleteproc.jsp">
+		<input type="submit" value="삭제"/>
+	
+		<table border="1">
+			<tr>
+				<th></th>
+				<th>idx</th>
+				<th>title</th>
+				<th>content</th>
+				<th>file</th>
+			</tr>
 		<%
 			for(int i=0;i<list.size();i++){
 				FileBoardDTO fdto = list.get(i);
 				out.println("<tr>");
+				out.println("<td><input type=\"checkbox\" name = \"ck\" value=\""+fdto.getIdx()+"\"/></td>");
 				out.println("<td>"+fdto.getIdx()+"</td>");
 				out.println("<td>"+fdto.getTitle()+"</td>");
 				out.println("<td>"+fdto.getContent()+"</td>");
@@ -44,7 +60,8 @@
 			}
 		%>
 		
-	</table>
+		</table>			
+	</form>
 </div>
 </body>
 </html>

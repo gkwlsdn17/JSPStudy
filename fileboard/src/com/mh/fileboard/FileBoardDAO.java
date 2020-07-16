@@ -86,7 +86,7 @@ public class FileBoardDAO {
 		ResultSet rs = null;
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("select * from fileboard");
+			pstmt = conn.prepareStatement("select * from fileboard order by idx desc");
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				list.add(new FileBoardDTO(rs.getString("title"),rs.getString("content"),rs.getString("filename"),rs.getInt("idx")));
@@ -101,5 +101,29 @@ public class FileBoardDAO {
 		}
 		
 		return list;
+	}
+	public void deleteFileBoard(String[] cks) {
+		String deleteIdxs ="";
+		for(int i=0;i<cks.length;i++) {
+			if(i!=cks.length-1)
+				deleteIdxs = deleteIdxs + " " +cks[i]+",";
+			else
+				deleteIdxs = deleteIdxs + " " +cks[i];
+		}
+		System.out.println(deleteIdxs);
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("delete from fileboard where idx in("+deleteIdxs+")");
+			pstmt.executeUpdate();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			doClose(conn,pstmt,null);
+		}
 	}
 }

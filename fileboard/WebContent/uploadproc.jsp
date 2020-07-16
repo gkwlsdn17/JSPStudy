@@ -56,4 +56,6 @@
     
     FileBoardDAO fbd = FileBoardDAO.getInstance();
     fbd.insertFileBoard(fdto);
+    response.sendRedirect("index.jsp");
+    //response.sendRedirect("/fileboard/a.do");
 %>

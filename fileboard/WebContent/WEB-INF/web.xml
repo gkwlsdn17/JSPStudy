@@ -9,4 +9,15 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+  <servlet-name>BBB</servlet-name>
+  <servlet-class>Com.mh.fileboard.BBB</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>BBB</servlet-name>
+  <url-pattern>/BBB</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
