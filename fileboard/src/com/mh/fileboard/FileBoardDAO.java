@@ -126,4 +126,23 @@ public class FileBoardDAO {
 			doClose(conn,pstmt,null);
 		}
 	}
+	public void updateFileBoard(FileBoardDTO dto) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("update fileboard set title=?, content=?, filename=? where idx = ?");
+			pstmt.setString(1, dto.getTitle());
+			pstmt.setString(2, dto.getContent());
+			pstmt.setString(3, dto.getFilename());
+			pstmt.setInt(4, dto.getIdx());
+			pstmt.executeUpdate();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			doClose(conn,pstmt,null);
+		}
+	}
 }
