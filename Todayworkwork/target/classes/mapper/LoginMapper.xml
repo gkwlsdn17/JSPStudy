@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+    <mapper namespace="login">
+    	<select id="selectCustomer" resultType="com.hk.todayworkwork.dto.CustomerDTO" parameterType="com.hk.todayworkwork.dto.CustomerDTO"> 
+    		select * from CUSTOMER where ID = #{id}
+    	</select>
+    	<select id="selectCom_customer" resultType="com.hk.todayworkwork.dto.Com_customerDTO" parameterType="com.hk.todayworkwork.dto.Com_customerDTO"> 
+    		select * from COM_CUSTOMER where ID = #{id}
+    	</select>
+    	
+<!--     	<update id="updateaa" parameterType="com.mh.simple01.dto.AADto"> -->
+<!--     		update aa set bb=#{bb} -->
+<!--     	</update> -->
+<!--     	<delete id="deleteaa"> -->
+<!--     		delete from aa -->
+<!--     	</delete> -->
+    </mapper>
